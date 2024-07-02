@@ -46,14 +46,14 @@ public class RequestHandler implements Runnable {
             logger.debug("HTTP Request Content:\n" + request.toString());
 
             if ("/".equals(url)) {
-                sendResponse(out, "<html><body><h1>Hello World!</h1></body></html>".getBytes(), "text/html");
-            } else {
-                if (url.equals("/registration")|| url.equals("/login") || url.equals("/article") || url.equals("/comment")) {
-                    url = mapRegistrationUrl(url);
-                }
-                logger.debug("Mapped URL: " + url);
-                handleFileRequest(out, url);
+                url = DEFAULT_PAGE;
             }
+            if (url.equals("/registration")|| url.equals("/login") || url.equals("/article") || url.equals("/comment") || url.equals("/main")) {
+                url = mapRegistrationUrl(url);
+            }
+            logger.debug("Mapped URL: " + url);
+            handleFileRequest(out, url);
+
         }
     }
 
