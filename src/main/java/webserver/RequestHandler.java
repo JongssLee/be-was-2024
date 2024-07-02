@@ -80,6 +80,8 @@ public class RequestHandler implements Runnable {
             return "image/png";
         } else if (url.endsWith(".jpg") || url.endsWith(".jpeg")) {
             return "image/jpeg";
+        } else if (url.endsWith(".svg")) {
+            return "image/svg+xml";
         } else {
             return "application/octet-stream";
         }
