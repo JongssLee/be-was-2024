@@ -41,7 +41,7 @@ public class HttpRequestParser {
             parseUrl(url, queryParams);
             path = queryParams.remove("path");  // parseUrl에서 설정한 path
 
-            Pattern headerPattern = Pattern.compile("^(.*?):\\s*(.*)$");
+            Pattern headerPattern = Pattern.compile("^\\s*(.*?)[\\s:]+\\s*(.*)$");
 
             while ((line = reader.readLine()) != null && !line.isEmpty()) {
                 Matcher matcher = headerPattern.matcher(line);
